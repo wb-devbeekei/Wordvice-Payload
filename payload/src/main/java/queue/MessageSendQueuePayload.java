@@ -7,16 +7,23 @@ import java.util.*;
 @ToString
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class MessageSendQueuePayload {
-    private String appkey;
-    private MessageType type;
+
+    private final String appkey;
+    private final MessageType type;
+    private final Message message;
+
     private String webHookUrl;
-    private Message message;
     private List<AlimtalkButton> alimtalkButtons;
+
     private Date requestDate = new Date();
     private int retryCount = 0;
+
+    public MessageSendQueuePayload(String appkey, MessageType type, Message message) {
+        this.appkey = appkey;
+        this.type = type;
+        this.message = message;
+    }
 
     public void addAlimtalkButton(AlimtalkButton alimtalkButton) {
         if (this.alimtalkButtons == null) this.alimtalkButtons = new ArrayList<>();
@@ -42,17 +49,26 @@ public class MessageSendQueuePayload {
     @ToString
     @Getter
     @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
     public static class Message {
-        private Set<String> to;
-        private String from;
+        private final Set<String> to;
+        private final String from;
+
         private String fromName;
         private String title;
         private String templateId;
         private String contents;
         private Map<String, Object> parameters;
         private Set<String> attachments;
+
+        public Message(String to, String from) {
+            this.to = Set.of(to);
+            this.from = from;
+        }
+
+        public Message(Set<String> to, String from) {
+            this.to = to;
+            this.from = from;
+        }
 
         public void addParameter(String key, Object value) {
             if (this.parameters == null) this.parameters = new HashMap<>();
