@@ -26,15 +26,17 @@ public class MessageSendQueuePayload {
     }
 
     @Getter
-    @Setter
-    @ToString
     @AllArgsConstructor
-    @NoArgsConstructor
-    public static class AlimtalkButton {
-        private String name;
-        private String type;
-        private String mobileUrl;
-        private String pcUrl;
+    public enum MessageType {
+        EMAIL(1, "이메일 발송"),
+        SMS(2, "SMS 발송(국내)"),
+        SMS_GLOBAL(3, "SMS 발송(해외)"),
+        ALIMTALK(4, "카카오 알림톡 발송"),
+        PUSH_BROWSER(5, "브라우져 푸시"),
+        PUSH_APP(6, "앱 푸시");
+
+        private final int ordinal;
+        private final String name;
     }
 
     @Getter
@@ -64,17 +66,15 @@ public class MessageSendQueuePayload {
     }
 
     @Getter
+    @Setter
+    @ToString
     @AllArgsConstructor
-    public enum MessageType {
-        EMAIL(1, "이메일 발송"),
-        SMS(2, "SMS 발송(국내)"),
-        SMS_GLOBAL(3, "SMS 발송(해외)"),
-        ALIMTALK(4, "카카오 알림톡 발송"),
-        PUSH_BROWSER(5, "브라우져 푸시"),
-        PUSH_APP(6, "앱 푸시");
-
-        private final int ordinal;
-        private final String name;
+    @NoArgsConstructor
+    public static class AlimtalkButton {
+        private String name;
+        private String type;
+        private String mobileUrl;
+        private String pcUrl;
     }
 
 }
