@@ -1,3 +1,5 @@
+package queue;
+
 import lombok.*;
 
 import java.util.*;
@@ -12,7 +14,7 @@ public class MessageSendQueuePayload {
     private MessageType type;
     private String webHookUrl;
     private Message message;
-    private List<AlimtalkButton> alimtalkButtons;
+    private List<AlimtalkButton> alimtalkButtons = new ArrayList<>();
     private Date requestDate = new Date();
     private int retryCount = 0;
 
