@@ -7,6 +7,7 @@ import java.util.*;
 @ToString
 @Getter
 @Setter
+@AllArgsConstructor
 public class MessageSendQueuePayload {
 
     private final String appkey;
@@ -49,6 +50,7 @@ public class MessageSendQueuePayload {
     @ToString
     @Getter
     @Setter
+    @AllArgsConstructor
     public static class Message {
         private final Set<String> to;
         private final String from;
@@ -85,7 +87,6 @@ public class MessageSendQueuePayload {
     @Getter
     @Setter
     @AllArgsConstructor
-    @NoArgsConstructor
     public static class AlimtalkButton {
         private String name;
         private String type;
