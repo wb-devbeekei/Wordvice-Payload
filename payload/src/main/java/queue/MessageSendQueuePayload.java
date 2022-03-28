@@ -1,11 +1,12 @@
 package queue;
 
 import lombok.*;
+
 import java.util.*;
 
+@ToString
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageSendQueuePayload {
@@ -13,7 +14,7 @@ public class MessageSendQueuePayload {
     private MessageType type;
     private String webHookUrl;
     private Message message;
-    private List<AlimtalkButton> alimtalkButtons = new ArrayList<>();
+    private List<AlimtalkButton> alimtalkButtons;
     private Date requestDate = new Date();
     private int retryCount = 0;
 
@@ -29,20 +30,18 @@ public class MessageSendQueuePayload {
     @Getter
     @AllArgsConstructor
     public enum MessageType {
-        EMAIL(1, "이메일 발송"),
-        SMS(2, "SMS 발송(국내)"),
-        SMS_GLOBAL(3, "SMS 발송(해외)"),
-        ALIMTALK(4, "카카오 알림톡 발송"),
-        PUSH_BROWSER(5, "브라우져 푸시"),
-        PUSH_APP(6, "앱 푸시");
-
-        private final int ordinal;
+        EMAIL("이메일 발송"),
+        SMS("SMS 발송(국내)"),
+        SMS_GLOBAL("SMS 발송(해외)"),
+        ALIMTALK("카카오 알림톡 발송"),
+        PUSH_BROWSER("브라우져 푸시"),
+        PUSH_APP("앱 푸시");
         private final String name;
     }
 
+    @ToString
     @Getter
     @Setter
-    @ToString
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Message {
@@ -66,9 +65,9 @@ public class MessageSendQueuePayload {
         }
     }
 
+    @ToString
     @Getter
     @Setter
-    @ToString
     @AllArgsConstructor
     @NoArgsConstructor
     public static class AlimtalkButton {
