@@ -8,15 +8,14 @@ import java.util.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class MessageSendQueuePayload {
 
-    private final String appkey;
-    private final MessageType type;
-    private final Message message;
-
+    private String appkey;
+    private MessageType type;
+    private Message message;
     private String webHookUrl;
     private List<AlimtalkButton> alimtalkButtons;
-
     private Date requestDate = new Date();
     private int retryCount = 0;
 
@@ -51,10 +50,10 @@ public class MessageSendQueuePayload {
     @Getter
     @Setter
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class Message {
-        private final Set<String> to;
-        private final String from;
-
+        private Set<String> to;
+        private String from;
         private String fromName;
         private String title;
         private String templateId;
@@ -87,6 +86,7 @@ public class MessageSendQueuePayload {
     @Getter
     @Setter
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class AlimtalkButton {
         private String name;
         private String type;
