@@ -61,7 +61,7 @@ public class MessageSendQueuePayload {
         private Set<String> attachments;
 
         public Message(String to, String from) {
-            this.to = Set.of(to);
+            this.to = new HashSet<>(){{ add(to); }};
             this.from = from;
         }
 
