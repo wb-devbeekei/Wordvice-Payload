@@ -19,6 +19,7 @@ public class Message {
     private String title;
     private String templateId;
     private String contents;
+    private String icon;
     private Map<String, Object> parameters;
     private Set<String> attachments;
 
