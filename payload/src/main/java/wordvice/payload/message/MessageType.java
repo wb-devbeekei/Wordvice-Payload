@@ -12,6 +12,7 @@ public enum MessageType {
     SMS_GLOBAL("SMS 발송(해외)"),
     ALIMTALK("카카오 알림톡 발송"),
     PUSH_BROWSER("브라우져 푸시"),
+    SLACK("슬랙"),
     PUSH_APP("앱 푸시");
 
     private final String name;

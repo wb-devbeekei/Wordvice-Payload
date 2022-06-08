@@ -20,11 +20,12 @@ public class Message {
     private String templateId;
     private String contents;
     private String icon;
+    private String channel;
     private Map<String, Object> parameters;
     private Set<String> attachments;
 
     public Message(String to, String from) {
-        this.to = new HashSet<String>(){{ add(to); }};
+        this.to = new HashSet<>(){{ add(to); }};
         this.from = from;
     }
 
@@ -34,12 +35,12 @@ public class Message {
     }
 
     public void addParameter(String key, Object value) {
-        if (this.parameters == null) this.parameters = new HashMap<String, Object>();
+        if (this.parameters == null) this.parameters = new HashMap<>();
         this.parameters.put(key, value);
     }
 
     public void addAttachment(String value) {
-        if (this.attachments == null) this.attachments = new HashSet<String>();
+        if (this.attachments == null) this.attachments = new HashSet<>();
         this.attachments.add(value);
     }
 }
