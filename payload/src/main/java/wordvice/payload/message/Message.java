@@ -25,7 +25,7 @@ public class Message {
     private Set<String> attachments;
 
     public Message(String to, String from) {
-        this.to = new HashSet<>(){{ add(to); }};
+        this.to = new HashSet<String>(){{ add(to); }};
         this.from = from;
     }
 
@@ -35,12 +35,12 @@ public class Message {
     }
 
     public void addParameter(String key, Object value) {
-        if (this.parameters == null) this.parameters = new HashMap<>();
+        if (this.parameters == null) this.parameters = new HashMap<String, Object>();
         this.parameters.put(key, value);
     }
 
     public void addAttachment(String value) {
-        if (this.attachments == null) this.attachments = new HashSet<>();
+        if (this.attachments == null) this.attachments = new HashSet<String>();
         this.attachments.add(value);
     }
 }
